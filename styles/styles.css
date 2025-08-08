@@ -171,13 +171,24 @@ body {
 }
 
 /* MODAL */
+/*.modal-background {*/
+/*  position: fixed;*/
+/*  inset: 0;*/
+/*  background: rgba(0,0,0,0.8);*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  z-index: 9999;*/
+/*}*/
+
 .modal-background {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.8);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 10rem;
   z-index: 9999;
 }
 

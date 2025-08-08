@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+/* THEME */
+:root {
+  --main-body-background: #0F141A;
+  --main-sections-background: #1B2229;
+  --row-item-background: #586775;
+  --font-normal: 400;
+  --font-bold: 700;
+  --btn-save-bg: #4C956C;
+  --btn-delete-bg: #A64B4B;
+  --focus-ring: rgba(74, 111, 165, 0.5);
+}
+
+/* BASE */
+body {
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--main-body-background);
+}
+
+/* LAYOUT */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.flex-container > div {
+  width: 370px;
+}
+
+.shop-list,
+.saved-list {
+  background: var(--main-sections-background);
+  border-radius: 1rem;
+  padding: 1.2rem;
+}
+
+.shop-list > h2,
+.saved-list > h2 {
+  font-style: italic;
+  margin: 0 0 1rem 0;
+}
+
+/* ROWS */
+.shop-list-input-row,
+.shop-list-item-row {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  width: 100%;
+}
+
+.shop-list-item-row {
+  background: var(--row-item-background);
+  border-radius: 1rem;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+
+.saved-list-item-row {
+  background: var(--row-item-background);
+  border-radius: 1rem;
+  padding: 0.8rem;
+  margin-top: 1rem;
+}
+
+.saved-list-item-row > span {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.shop-list-item-row > span {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.saved-list-item-row > span {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* INPUTS */
+.shop-list-add-item,
+.shop-list-save-list {
+  border-radius: 0.25rem;
+  border: 2px solid #000;
+  padding-left: 0.75rem;
+  height: 2.5rem;
+  color: #111;
+}
+
+.shop-list-save-list {
+  border: none;
+  width: 12rem;
+  margin-top: 1rem;
+}
+
+.shop-list-add-item:focus,
+.shop-list-save-list:focus {
+  outline: none;
+  border: 3px solid var(--btn-save-bg);
+  box-shadow: 0 0 6px var(--focus-ring);
+}
+
+/* BUTTONS */
+.btn {
+  width: 5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  color: #FFF;
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.btn-save,
+.btn-edit,
+.btn-add { background: var(--btn-save-bg); }
+
+.btn-save:hover,
+.btn-edit:hover,
+.btn-add:hover,
+.btn-save:focus,
+.btn-edit:focus,
+.btn-add:focus {
+  background-color: #3d7a56;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(60, 122, 86, 0.4);
+}
+
+.btn-delete,
+.btn-remove { background: var(--btn-delete-bg); }
+
+.btn-delete:hover,
+.btn-delete:focus,
+.btn-remove:hover,
+.btn-remove:focus {
+  background-color: #873a3a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(135, 58, 58, 0.4);
+}
+
+/* BUTTON GROUPS */
+.shop-list-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 2rem auto 1rem auto;
+}
+
+.save-list-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+/* EMPTY STATE */
+.saved-list-empty {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* MODAL */
+.modal-background {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-delete,
+.modal-save {
+  display: flex;
+  flex-direction: column;
+  width: min(50rem, 80vw);
+  max-width: 90vw;
+  min-height: 180px;
+  max-height: 90vh;
+  border-radius: 8px;
+  background: var(--main-sections-background);
+  padding: 1.5rem 1.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-text {
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.modal-buttons .btn {
+  margin: 0;
+}

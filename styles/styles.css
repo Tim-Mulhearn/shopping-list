@@ -61,14 +61,16 @@ body {
 
 .shop-list-item-row {
   background: var(--row-item-background);
-  border-radius: 1rem;
+  /*border-radius: 1rem;*/
+  border-radius: 0.25rem;
   padding: 0.8rem;
   margin-top: 1rem;
 }
 
 .saved-list-item-row {
   background: var(--row-item-background);
-  border-radius: 1rem;
+  /*border-radius: 1rem;*/
+  border-radius: 0.25rem;
   padding: 0.8rem;
   margin-top: 1rem;
 }
@@ -96,6 +98,7 @@ body {
   padding-left: 0.75rem;
   height: 2.5rem;
   color: #111;
+  width: 240px;
 }
 
 .shop-list-save-list {

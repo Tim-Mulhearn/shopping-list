@@ -62,7 +62,7 @@
       <div class="saved-list-item-row" v-for="(list, key) in savedLists" :key="key">
         <span>{{ key }} ({{ list.length }} items)</span>
         <div class="save-list-buttons">
-          <button class="btn btn-edit" @click="loadList(key)">Edit</button>
+          <button class="btn btn-edit" @click="loadList(key)">Edit/View</button>
           <button class="btn btn-delete" @click="openModal(key, 'deleteModal')">Delete</button>
         </div>
       </div>

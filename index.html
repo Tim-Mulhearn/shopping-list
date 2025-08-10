@@ -17,8 +17,8 @@
   <div class="flex-container">
     <!-- CURRENT LIST -->
     <div class="shop-list">
+      <!-- SHOPPING LIST HEADING -->
       <h2>Shopping List</h2>
-
       <div class="shop-list-input-row">
         <input
           type="text"
@@ -29,20 +29,18 @@
         />
         <button class="btn btn-add" @click="addItem">Add Item</button>
       </div>
-
       <div class="saved-list-empty" v-if="shoppingList.length === 0">
         <p>Shopping list is empty</p>
       </div>
-
       <div class="shop-list-item-row" v-for="(item, index) in shoppingList" :key="item.name">
         <span>{{ item.name }}</span>
         <button class="btn btn-remove" @click="removeItem(index)">Remove</button>
       </div>
-
       <div class="shop-list-buttons" v-if="shoppingList.length > 0">
         <template v-if="updateList">
           <button class="btn btn-save" @click="updateShoppinglist">Update</button>
           <button class="btn btn-delete" @click="cancelUpdate">Cancel</button>
+          <button class="btn btn-delete" @click="openModal(key, 'deleteModal')">Delete</button>
         </template>
         <template v-else>
           <button class="btn btn-save" @click="openModal(null, 'saveModal')">Save</button>
@@ -50,15 +48,12 @@
         </template>
       </div>
     </div>
-
     <!-- SAVED LISTS -->
     <div class="saved-list">
       <h2>Saved Lists</h2>
-
       <div class="saved-list-empty" v-if="Object.keys(savedLists).length === 0">
         <p>You don’t have any saved lists</p>
       </div>
-
       <div class="saved-list-item-row" v-for="(list, key) in savedLists" :key="key">
         <span>{{ key }} ({{ list.length }} items)</span>
         <div class="save-list-buttons">
@@ -68,7 +63,6 @@
       </div>
     </div>
   </div>
-
   <!-- MODALS -->
   <div class="modal-background" v-if="showModal" @click.self="closeModal">
     <div class="modal-delete" v-if="showModalDelete">
@@ -80,7 +74,6 @@
         <button class="btn btn-edit" @click="closeModal">Cancel</button>
       </div>
     </div>
-
     <div class="modal-save" v-if="showModalSave">
       <div class="modal-text">
         <div>Enter a name for the list</div>
@@ -116,15 +109,6 @@
       const shoppingListName = ref('');
       const updateList = ref(false);
       const updateListKey = ref('');
-
-      // On mount, get saved lists.
-      onMounted(() => {
-        const saved = localStorage.getItem('shoppingListSavedList');
-        if (saved) {
-          try { savedLists.value = JSON.parse(saved) || {}; }
-          catch { savedLists.value = {}; }
-        }
-      });
 
       // Add item.
       function addItem() {
@@ -199,6 +183,7 @@
           delete savedLists.value[key];
           localStorage.setItem('shoppingListSavedList', JSON.stringify(savedLists.value));
         }
+        shoppingList.value = [];
         closeModal();
       }
 
@@ -229,6 +214,15 @@
         showModalSave.value = false;
         shoppingListName.value = '';
       }
+
+      // On mount, get saved lists.
+      onMounted(() => {
+        const saved = localStorage.getItem('shoppingListSavedList');
+        if (saved) {
+          try { savedLists.value = JSON.parse(saved) || {}; }
+          catch { savedLists.value = {}; }
+        }
+      });
 
       return {
         // States.

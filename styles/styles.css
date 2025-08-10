@@ -4,20 +4,23 @@
 
 /* THEME */
 :root {
-  --main-body-background: #0F141A;
-  --main-sections-background: #1B2229;
-  --row-item-background: #586775;
-  --font-normal: 400;
-  --font-bold: 700;
-  --btn-save-bg: #4C956C;
-  --btn-delete-bg: #A64B4B;
-  --focus-ring: rgba(74, 111, 165, 0.5);
+  --main-body-background: #0b1026;
+  --text-color: #e6f1ff;
+  --main-sections-background: #111827;
+  --row-item-background: #1f2937;
+  --btn-save-bg: #06b6d4;
+  --btn-save-hover: #0891b2;
+  --shadow-save: rgba(6,182,212,0.35);
+  --btn-delete-bg: #fb7185;
+  --btn-delete-hover: #f43f5e;
+  --shadow-delete: rgba(251,113,133,0.35);
+  --focus-ring: rgba(6,182,212,0.35);
 }
 
 /* BASE */
 body {
   font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
-  color: #FFF;
+  color: var(--text-color);
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -136,9 +139,9 @@ body {
 .btn-save:focus,
 .btn-edit:focus,
 .btn-add:focus {
-  background-color: #3d7a56;
+  background-color: var(--btn-save-hover);
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(60, 122, 86, 0.4);
+  box-shadow: 0 4px 8px var(--shadow-save);
 }
 
 .btn-delete,
@@ -148,9 +151,9 @@ body {
 .btn-delete:focus,
 .btn-remove:hover,
 .btn-remove:focus {
-  background-color: #873a3a;
+  background-color: var(--btn-delete-hover);
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(135, 58, 58, 0.4);
+  box-shadow: 0 4px 8px var(--shadow-delete);
 }
 
 /* BUTTON GROUPS */

@@ -1,30 +1,18 @@
-# Vue 3 Shopping List
+# Shopping List (Vue 3)
 
-A tiny Vue 3 (Composition API) demo.
+Free to use.
 
-## ✨ Features
+## What I built
+- Add items (Enter key or button).
+- Remove individual items.
+- Clear the current list.
+- Save the current list with a custom name (stored in localStorage).
+- Load/Edit a saved list.
+- Update (overwrite) an existing saved list.
+- Delete a saved list (confirmation modal).
+- Modal system with backdrop click-to-close.
+- Composition API state with Vue 3 (`ref`, `onMounted`).
+- Persist saved lists across sessions via `localStorage`.
 
-- Add items to the current list (Enter key supported)
-- Remove single items or clear the whole list
-- **Save** the current list under a name (stored in `localStorage`)
-- **Edit/Update** a saved list (load it, tweak items, click **Update**)
-- **Delete** a saved list (with a confirmation modal)
-- Modals close on outside click (`@click.self`) and have a11y-friendly structure
-
-> Saved lists are keyed by **name** (not timestamps). Simple on purpose.
-
-## 🧱 Tech
-
-- **Vue 3** (Composition API)
-- Plain **HTML/CSS**
-- **localStorage** for persistence
-
-## 🚀 Quick Start
-
-1. Clone/download.
-2. Open `index.html` directly in a browser **or** run a quick server:
-   ```bash
-   # any of these is fine
-   python3 -m http.server 8000
-   # or
-   npx http-server .
+## Run
+Open `index.html` in any browser (or use a simple local server). No build step required.

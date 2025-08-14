@@ -1,4 +1,4 @@
-# Shopping List (Vue 3)
+# Shopping List
 
 Built with vue 3, free to use.
 

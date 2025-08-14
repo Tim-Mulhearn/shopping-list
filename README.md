@@ -1,6 +1,6 @@
 # Shopping List (Vue 3)
 
-Free to use.
+Built with vue 3, free to use.
 
 ## What I built
 - Add items (Enter key or button).

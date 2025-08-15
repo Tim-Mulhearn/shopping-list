@@ -10,15 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles/styles.css" />
-<!--  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 </head>
 <body>
 <main id="app">
   <div class="flex-container">
-    <!-- CURRENT LIST -->
+    <!-- Current list -->
     <div class="shop-list">
-      <!-- SHOPPING LIST HEADING -->
+      <!-- Shopping list heading-->
       <h2>Shopping List</h2>
       <div class="shop-list-input-row">
         <input
@@ -49,7 +48,7 @@
         </template>
       </div>
     </div>
-    <!-- SAVED LISTS -->
+    <!-- Saved lists -->
     <div class="saved-list">
       <h2>Saved Lists</h2>
       <div class="saved-list-empty" v-if="Object.keys(savedLists).length === 0">
@@ -64,7 +63,7 @@
       </div>
     </div>
   </div>
-  <!-- MODALS -->
+  <!-- Modal -->
   <div class="modal-background" v-if="showModal" @click.self="closeModal">
     <div class="modal-delete" v-if="showModalDelete">
       <div class="modal-text">
@@ -99,7 +98,7 @@
 
   createApp({
     setup() {
-      // Vars.
+      // Vars
       const itemName = ref('');
       const shoppingList = ref([]);
       const savedLists = ref({});
@@ -111,25 +110,25 @@
       const updateList = ref(false);
       const updateListKey = ref('');
 
-      // Add item.
+      // Add item
       function addItem() {
-        const v = itemName.value.trim();
-        if (!v) return;
-        shoppingList.value.push({ name: v });
+        const item = itemName.value.trim();
+        if (!item) return;
+        shoppingList.value.push({ name: item });
         itemName.value = '';
       }
 
-      // Remove item.
+      // Remove item
       function removeItem(index) {
         shoppingList.value.splice(index, 1);
       }
 
-      // Reset list.
+      // Reset list
       function clearList() {
         shoppingList.value = [];
       }
 
-      // Save list.
+      // Save list
       function saveShoppinglist() {
         const name = shoppingListName.value.trim();
         if (!name || shoppingList.value.length === 0) return;
@@ -159,14 +158,14 @@
         shoppingList.value = [];
       }
 
-      // Cancel update.
+      // Cancel update
       function cancelUpdate() {
         updateList.value = false;
         updateListKey.value = '';
         shoppingList.value = [];
       }
 
-      // Load list.
+      // Load list
       function loadList(key) {
         const list = savedLists.value[key];
 
@@ -178,7 +177,7 @@
         }
       }
 
-      // Delete list.
+      // Delete list
       function deleteList(key) {
         if (key in savedLists.value) {
           delete savedLists.value[key];
@@ -188,7 +187,7 @@
         closeModal();
       }
 
-      // Open modal.
+      // Open modal
       function openModal(payload, type) {
         showModalDelete.value = false;
         showModalSave.value = false;
@@ -208,7 +207,7 @@
         showModal.value = true;
       }
 
-      // Close modal.
+      // Close modal
       function closeModal() {
         showModal.value = false;
         showModalDelete.value = false;
@@ -216,7 +215,7 @@
         shoppingListName.value = '';
       }
 
-      // On mount, get saved lists.
+      // On mount, get saved lists
       onMounted(() => {
         const saved = localStorage.getItem('shoppingListSavedList');
         if (saved) {
@@ -226,11 +225,11 @@
       });
 
       return {
-        // States.
+        // States
         itemName, shoppingList, savedLists,
         showModal, showModalDelete, showModalSave,
         modalValue, shoppingListName, updateList,
-        // Actions.
+        // Actions
         addItem, removeItem, clearList,cancelUpdate,
         saveShoppinglist, updateShoppinglist, loadList, deleteList,
         openModal, closeModal

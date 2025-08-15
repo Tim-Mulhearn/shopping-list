@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-/* THEME */
+/* Theme colors */
 :root {
   --main-body-background: #0b1026;
   --text-color: #e6f1ff;
@@ -17,7 +17,7 @@
   --focus-ring: rgba(6,182,212,0.35);
 }
 
-/* BASE */
+/* Base */
 body {
   font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
   color: var(--text-color);
@@ -27,7 +27,7 @@ body {
   background: var(--main-body-background);
 }
 
-/* LAYOUT */
+/* Layouts */
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -53,7 +53,7 @@ body {
   margin: 0 0 1rem 0;
 }
 
-/* ROWS */
+/* Rows */
 .shop-list-input-row,
 .shop-list-item-row {
   display: flex;
@@ -64,7 +64,6 @@ body {
 
 .shop-list-item-row {
   background: var(--row-item-background);
-  /*border-radius: 1rem;*/
   border-radius: 0.25rem;
   padding: 0.8rem;
   margin-top: 1rem;
@@ -72,7 +71,6 @@ body {
 
 .saved-list-item-row {
   background: var(--row-item-background);
-  /*border-radius: 1rem;*/
   border-radius: 0.25rem;
   padding: 0.8rem;
   margin-top: 1rem;
@@ -93,7 +91,7 @@ body {
   min-width: 0;
 }
 
-/* INPUTS */
+/* Inputs */
 .shop-list-add-item,
 .shop-list-save-list {
   border-radius: 0.25rem;
@@ -117,21 +115,23 @@ body {
   box-shadow: 0 0 6px var(--focus-ring);
 }
 
-/* BUTTONS */
+/* Buttons */
 .btn {
   width: 5rem;
   height: 2.5rem;
   border: none;
   border-radius: 0.25rem;
   color: #FFF;
-  font-weight: var(--font-bold);
+  font-weight: 700;
   cursor: pointer;
   transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
 }
 
 .btn-save,
 .btn-edit,
-.btn-add { background: var(--btn-save-bg); }
+.btn-add {
+  background: var(--btn-save-bg);
+}
 
 .btn-save:hover,
 .btn-edit:hover,
@@ -145,7 +145,9 @@ body {
 }
 
 .btn-delete,
-.btn-remove { background: var(--btn-delete-bg); }
+.btn-remove {
+  background: var(--btn-delete-bg);
+}
 
 .btn-delete:hover,
 .btn-delete:focus,
@@ -156,7 +158,7 @@ body {
   box-shadow: 0 4px 8px var(--shadow-delete);
 }
 
-/* BUTTON GROUPS */
+/* Button groups */
 .shop-list-buttons {
   display: flex;
   justify-content: flex-start;
@@ -170,22 +172,11 @@ body {
   gap: 1rem;
 }
 
-/* EMPTY STATE */
+/* Empty states */
 .saved-list-empty {
   font-style: italic;
   opacity: 0.9;
 }
-
-/* MODAL */
-/*.modal-background {*/
-/*  position: fixed;*/
-/*  inset: 0;*/
-/*  background: rgba(0,0,0,0.8);*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  z-index: 9999;*/
-/*}*/
 
 .modal-background {
   position: fixed;

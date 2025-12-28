@@ -180,10 +180,15 @@
 
       // Delete list
       function deleteList(key) {
-        if (key in savedLists.value) {
+        if (!key) return;
+
+        if (Object.prototype.hasOwnProperty.call(savedLists.value, key)) {
           delete savedLists.value[key];
           localStorage.setItem('shoppingListSavedList', JSON.stringify(savedLists.value));
         }
+
+        updateList.value = false;
+        updateListKey.value = '';
         shoppingList.value = [];
         closeModal();
       }

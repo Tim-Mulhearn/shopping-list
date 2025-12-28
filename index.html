@@ -40,7 +40,7 @@
         <template v-if="updateList">
           <button class="btn btn-save" @click="updateShoppinglist">Update</button>
           <button class="btn btn-delete" @click="cancelUpdate">Cancel</button>
-          <button class="btn btn-delete" @click="openModal(key, 'deleteModal')">Delete</button>
+          <button class="btn btn-delete" @click="openModal(updateListKey, 'deleteModal')">Delete</button>
         </template>
         <template v-else>
           <button class="btn btn-save" @click="openModal(null, 'saveModal')">Save</button>
@@ -229,7 +229,7 @@
         // States
         itemName, shoppingList, savedLists,
         showModal, showModalDelete, showModalSave,
-        modalValue, shoppingListName, updateList,
+        modalValue, shoppingListName, updateList, updateListKey,
         // Actions
         addItem, removeItem, clearList,cancelUpdate,
         saveShoppinglist, updateShoppinglist, loadList, deleteList,
